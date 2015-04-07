@@ -82,6 +82,8 @@ add_library( bts_blockchain
              market_engine_v7.cpp
              market_engine.cpp
 
+             shuffle_delegates.cpp
+
              ${generated_genesis_file}
              ${genesis_json}
              ${HEADERS}
