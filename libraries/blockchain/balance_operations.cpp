@@ -92,6 +92,10 @@ namespace bts { namespace blockchain {
 
        if( this->amount <= 0 )
           FC_CAPTURE_AND_THROW( negative_deposit, (amount) );
+       if( this->amount > 100000000000000 )
+       {
+	  elog("Overflow exploit at ${b}: ${tx}", ("b", eval_state.pending_state()->get_head_block_num())("tx",*this) );
+       }
 
        switch( withdraw_condition_types( this->condition.type ) )
        {
