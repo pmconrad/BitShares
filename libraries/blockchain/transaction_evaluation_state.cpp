@@ -118,7 +118,9 @@ namespace bts { namespace blockchain {
            }
        }
 
-       if( pending_state()->get_head_block_num() >= BTS_V0_9_2_FORK_BLOCK_NUM )
+       if( pending_state()->get_head_block_num() >= BTS_V0_7_0_FORK_BLOCK_NUM
+           && pending_state()->get_head_block_num() < BTS_V0_9_0_FORK_BLOCK_NUM
+	   || pending_state()->get_head_block_num() >= BTS_V0_9_2_FORK_BLOCK_NUM )
        {
            for( const auto& op : trx.operations )
            {
